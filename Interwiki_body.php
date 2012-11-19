@@ -174,7 +174,7 @@ class SpecialInterwiki extends SpecialPage {
 					Html::rawElement( 'td', array( 'class' => 'mw-submit' ),
 						Xml::submitButton( $this->msg( $button )->text(), array( 'id' => 'mw-interwiki-submit' ) ) )
 				) . $wpPrefix .
-				Html::hidden( 'wpEditToken', $this->getUser()->getEditToken() ) .
+				Html::hidden( 'wpEditToken', $this->getUser()->editToken() ) .
 				Html::hidden( 'wpInterwikiAction', $action )
 			)
 		) );
@@ -302,11 +302,20 @@ class SpecialInterwiki extends SpecialPage {
 		}
 
 		if ( !method_exists( 'Interwiki', 'getAllPrefixes' ) ) {
+			$dbr = wfGetDB( DB_SLAVE );
+			$res = $dbr->select( 'interwiki', '*', false, __METHOD__ );
+			$iwPrefixes = array();
+			while ( $row = $res->fetchRow() ) {
+				$iwPrefixes[] = $row;
+			}
+		} else {
+			$iwPrefixes = Interwiki::getAllPrefixes( null );
+		}
+		if ( !$iwPrefixes ) {
 			# version 2.0 is not backwards compatible (but still display nice error)
 			$this->error( 'interwiki_error' );
 			return;
 		}
-		$iwPrefixes = Interwiki::getAllPrefixes( null );
 
 		if ( !is_array( $iwPrefixes ) || count( $iwPrefixes ) === 0 ) {
 			# If the interwiki table is empty, display an error message
@@ -390,6 +399,7 @@ class SpecialInterwiki extends SpecialPage {
 	}
 }
 
+if (class_exists('LogFormatter')) {
 /**
  * Needed to pass the URL as a raw parameter, because it contains $1
  */
@@ -404,4 +414,5 @@ class InterwikiLogFormatter extends LogFormatter {
 		}
 		return $params;
 	}
+}
 }

@@ -88,9 +88,9 @@ Possibly it does not exist.',
 
 	# interwiki log
 	'log-name-interwiki' => 'Interwiki table log',
-	'logentry-interwiki-iw_add' => '$1 {{GENDER:$2|added}} prefix "$4" ($5) (trans: $6; local: $7) to the interwiki table',
-	'logentry-interwiki-iw_edit' => '$1 {{GENDER:$2|modified}} prefix "$4" ($5) (trans: $6; local: $7) in the interwiki table',
-	'logentry-interwiki-iw_delete' => '$1 {{GENDER:$2|removed}} prefix "$4" from the interwiki table',
+	'logentry-interwiki-iw_add' => '$1 added prefix "$2" ($3) (trans: $4; local: $5) to the interwiki table',
+	'logentry-interwiki-iw_edit' => '$1 modified prefix "$2" ($3) (trans: $4; local: $5) in the interwiki table',
+	'logentry-interwiki-iw_delete' => '$1 removed prefix "$2" from the interwiki table',
 	'log-description-interwiki' => 'This is a log of changes to the [[Special:Interwiki|interwiki table]].',
 	'logentry-interwiki-interwiki' => '', # do not translate this message
 
@@ -3775,9 +3775,9 @@ $messages['ru'] = array(
 	'interwiki-badprefix' => 'Указанный префикс интервики «$1» содержит недопустимые символы',
 	'interwiki-submit-empty' => 'Префикс и URL не могут быть пустыми.',
 	'log-name-interwiki' => 'Журнал изменений таблицы интервики',
-	'logentry-interwiki-iw_add' => '$1 {{GENDER:$2|добавил|добавила}} префикс «$4» ($5) (trans: $6; local: $7) в интервики-таблицу',
-	'logentry-interwiki-iw_edit' => '$1 {{GENDER:$2|изменил|изменила}} префикс «$4» ($5) (trans: $6; local: $7) в интервики-таблице',
-	'logentry-interwiki-iw_delete' => '$1 {{GENDER:$2|удалил|удалила}} префикс «$4» из интервики-таблицы',
+	'logentry-interwiki-iw_add' => '$1 добавил префикс «$2» ($3) (trans: $4; local: $5) в интервики-таблицу',
+	'logentry-interwiki-iw_edit' => '$1 изменил префикс «$2» ($3) (trans: $4; local: $5) в интервики-таблице',
+	'logentry-interwiki-iw_delete' => '$1 удалил префикс «$2» из интервики-таблицы',
 	'log-description-interwiki' => 'Это журнал изменений [[Special:Interwiki|таблицы интервики]].',
 	'right-interwiki' => 'правка таблицы интервики',
 	'action-interwiki' => 'изменение записи интервики',

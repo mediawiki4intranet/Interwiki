@@ -69,6 +69,15 @@ function setupInterwikiExtension() {
 		$wgLogTypes[] = 'interwiki';
 		# interwiki, iw_add, iw_delete, iw_edit
 		$wgLogActionsHandlers['interwiki/*']  = 'InterwikiLogFormatter';
+
+		// Backport for 1.18
+		global $wgLogHeaders, $wgLogNames, $wgLogActions;
+		$wgLogNames['interwiki'] = 'log-name-interwiki';
+		$wgLogHeaders['interwiki'] = 'log-description-interwiki';
+		$wgLogActions['interwiki/interwiki'] = '';
+		$wgLogActions['interwiki/iw_add'] = 'logentry-interwiki-iw_add';
+		$wgLogActions['interwiki/iw_delete'] = 'logentry-interwiki-iw_delete';
+		$wgLogActions['interwiki/iw_edit'] = 'logentry-interwiki-iw_edit';
 	}
 
 	return true;
